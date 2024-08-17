@@ -8,3 +8,6 @@ build:
 # Deploy the containers using docker-compose
 deploy:
 	docker-compose up -d
+
+stop:
+	docker-compose down

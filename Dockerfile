@@ -8,5 +8,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+EXPOSE 8513
+
 # 启动 Flask 应用（代码目录会在运行时挂载到 /app）
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]

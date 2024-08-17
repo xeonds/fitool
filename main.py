@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory
 from fitparse import FitFile
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 from os.path import join
 from itertools import groupby
 from operator import itemgetter
 
 app = Flask(__name__, static_folder='dist')
-CORS(app)  # Enable CORS for the Flask app
+CORS(app)
 
 @app.route('/')
 def index(): return send_from_directory(app.static_folder, 'index.html')
