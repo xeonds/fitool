@@ -1,5 +1,29 @@
-# Vue 3 + TypeScript + Vite
+# FiTool
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一个用于解析佳明.Fit格式文件的工具，使用`Flask`，`python-fitool`和`Vue3`开发。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 用法
+
+- 裸机部署：
+
+```bash
+# 安装依赖&编译
+pip install --no-cache-dir -r requirements.txt
+pnpm i && pnpm run build
+# 运行
+python main.py
+```
+
+- 容器化部署
+
+```bash
+make build && make deploy
+```
+
+完成后，访问`localhost:8513`来使用服务
+
+或者参考`main.py`的代码编写手动转换工具。
+
+## LICENSE
+
+GNU General Public License V3
