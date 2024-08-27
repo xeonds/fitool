@@ -2,12 +2,10 @@ version: '3.8'
 
 services:
   fit-server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ubuntu:latest
     container_name: fit-server
     ports:
       - "8513:8513"
     volumes:
       - .:/app
-    command: ["python", "main.py"]
+    command: /app/fitool-server

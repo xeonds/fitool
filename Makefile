@@ -1,9 +1,11 @@
 # Makefile
 
 # Build the frontend project and ensure the Docker image is up-to-date
-build:
-	pnpm run build
-	docker build -t fit-server:latest .
+frontend:
+	pnpm i && pnpm build
+
+fitool-server:
+	go build -o fitool-server
 
 # Deploy the containers using docker-compose
 deploy:
