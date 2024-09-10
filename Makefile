@@ -4,10 +4,9 @@
 frontend:
 	pnpm i && pnpm build
 
-fitool-server:
-	go build -o fitool-server
+server:
+	docker compose build
 
-# Deploy the containers using docker-compose
 deploy:
 	docker-compose up -d
 

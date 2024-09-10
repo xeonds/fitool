@@ -29,4 +29,30 @@ def fit2json():
             return jsonify({'error': str(e)}), 500
     return jsonify({'error': 'Invalid file format'}), 400
 
+@app.route('/tcx2json', methods=['POST'])
+def tcx2json():
+    if 'file' not in request.files: return jsonify({'error': 'No file part'}), 400
+    file = request.files['file']
+    if file.filename == '': return jsonify({'error': 'No selected file'}), 400
+    if file and file.filename.lower().endswith('.tcx'):
+        try:
+            tcx_file = file.read().decode('utf-8')
+            return jsonify({'tcx': tcx_file})
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    return jsonify({'error': 'Invalid file format'}), 400
+
+@app.route('/gpx2json', methods=['POST'])
+def gpx2json():
+    if 'file' not in request.files: return jsonify({'error': 'No file part'}), 400
+    file = request.files['file']
+    if file.filename == '': return jsonify({'error': 'No selected file'}), 400
+    if file and file.filename.lower().endswith('.gpx'):
+        try:
+            gpx_file = file.read().decode('utf-8')
+            return jsonify({'gpx': gpx_file})
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    return jsonify({'error': 'Invalid file format'}), 400
+
 if __name__ == '__main__': app.run(debug=True, port=8513)
